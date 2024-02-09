@@ -1,6 +1,9 @@
 import Menu from "./components/Menu"
 import Intro from "./components/Intro"
 import Services from "./components/Services"
+import Projets from "./components/Projets"
+import gsap from "gsap"
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 export default function Page(){
   
@@ -48,6 +51,9 @@ export default function Page(){
     <div className="bg-neutral-100">
       <Services/>
     </div>
+
+
+    <Projets/>
       
     </>
   )
