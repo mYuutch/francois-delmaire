@@ -24,6 +24,7 @@ export default function Projets(){
                 start: "top top",
                 end: "bottom bottom",
                 pin: true,
+                markers: true,
                 animation: pinProjectsSection,
                 toggleActions:  'play reverse play reverse'
             })
@@ -49,7 +50,10 @@ export default function Projets(){
 
 
     return(
-        <section className="projects-section w-screen h-[350vh] flex relative">
+        <>
+
+        <div className="h-[350vh] overflow-hidden relative">
+        <section className="projects-section w-screen h-[350vh] flex  overflow-hidden absolute top-0">
             <div className="projects-container h-[100vh]  pt-20  top-0 left-0 flex">
                    <div className="projects w-[400vh] h-3/4 flex my-auto">
                         
@@ -84,8 +88,11 @@ export default function Projets(){
 
                    </div>
             </div>
-
-            <div className="h-screen"></div>
         </section>
+        </div>
+
+        <div className="bg-primary h-screen text-center flexitems-center justify-center">AVIS</div>
+
+        </>
     )
 }
