@@ -46,7 +46,7 @@ export default function Projets(){
 
 
     return(
-        <section className="projects-section w-screen h-[700vh] flex relative">
+        <section className="projects-section w-screen h-[350vh] flex relative">
             <div className="projects-container h-[100vh]  pt-20  top-0 left-0 flex">
                    <div className="projects w-[300vh] h-3/4 flex my-auto">
                         

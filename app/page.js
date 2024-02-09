@@ -1,11 +1,24 @@
+'use client'
 import Menu from "./components/Menu"
 import Intro from "./components/Intro"
 import Services from "./components/Services"
 import Projets from "./components/Projets"
-import gsap from "gsap"
-import ScrollTrigger from "gsap/ScrollTrigger";
+import Lenis from '@studio-freight/lenis'
 
 export default function Page(){
+
+  const lenis = new Lenis()
+
+lenis.on('scroll', (e) => {
+  console.log(e)
+})
+
+function raf(time) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
   
   return(
     <>
