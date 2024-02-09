@@ -4,21 +4,27 @@ import Intro from "./components/Intro"
 import Services from "./components/Services"
 import Projets from "./components/Projets"
 import Lenis from '@studio-freight/lenis'
-
+import { useEffect } from "react"
 export default function Page(){
 
-  const lenis = new Lenis()
+  useEffect(() => {
 
-lenis.on('scroll', (e) => {
-  console.log(e)
-})
+    const lenis = new Lenis()
 
-function raf(time) {
-  lenis.raf(time)
-  requestAnimationFrame(raf)
-}
+    lenis.on('scroll', (e) => {
+      console.log(e)
+    })
+    
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+    
+    requestAnimationFrame(raf)
 
-requestAnimationFrame(raf)
+  }, [])
+
+
   
   return(
     <>
