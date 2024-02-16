@@ -82,7 +82,7 @@ export default function Page(){
       <h2 className="uppercase text-white  text-4xl md:text-5xl lg:text-6xl xl:text-8xl mb-24">Et vous ?</h2>
       </div>
       
-      <Carousel autoPlay className="bg-primary  p-12">
+      <Carousel autoPlay showStatus={false} showThumbs={false} className="bg-primary  p-12">
       <div className="container mx-auto h-auto">
         <p className="text-white text-2xl opacity-90">&quot;Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit tempore vel dolorum itaque sed esse aperiam repudiandae ullam quibusdam, autem dicta aliquam totam in inventore numquam pariatur saepe nemo quam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde id repudiandae error quis, ipsa omnis nam reprehenderit temporibus quas, laborum odit nisi, odio debitis impedit! Repellat vel iusto nobis in. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores aperiam assumenda nobis corrupti, consequatur soluta corporis, doloribus voluptas a consequuntur aliquid explicabo nisi saepe delectus rem laboriosam accusantium, dolorum quas.&quot;</p>
         <div className="my-14">
