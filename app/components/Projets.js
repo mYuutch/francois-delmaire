@@ -24,7 +24,7 @@ export default function Projets(){
                 start: "top top",
                 end: "bottom bottom",
                 pin: true,
-                markers: true,
+                markers: false,
                 animation: pinProjectsSection,
                 toggleActions:  'play reverse play reverse'
             })
@@ -91,7 +91,6 @@ export default function Projets(){
         </section>
         </div>
 
-        <div className="bg-primary h-screen text-center flexitems-center justify-center">AVIS</div>
 
         </>
     )
