@@ -9,6 +9,24 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel"
 export default function Page(){
 
+
+  const CustomPrevArrow = ({ onClick, hasPrev }) => (
+    <div className="absolute left-4 z-10 cursor-pointer   top-1/4" onClick={onClick} disabled={!hasPrev}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="white"><path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path></svg>
+      
+    </div>
+  );
+  
+  // Custom arrow component for the next arrow
+  const CustomNextArrow = ({ onClick, hasNext }) => (
+    <div className="absolute right-4 z-10 cursor-pointer top-1/4 " onClick={onClick} disabled={!hasNext}>
+     <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="white"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
+    
+    </div>
+  );
+
+  
+
   useEffect(() => {
 
     const lenis = new Lenis()
@@ -82,7 +100,21 @@ export default function Page(){
       <h2 className="uppercase text-white  text-4xl md:text-5xl lg:text-6xl xl:text-8xl mb-24">Et vous ?</h2>
       </div>
       
-      <Carousel autoPlay showStatus={false} showThumbs={false} showIndicators={false} stopOnHover={false} infiniteLoop={true} className="bg-primary  p-12">
+      <Carousel 
+      autoPlay 
+      showStatus={false} 
+      showThumbs={false} 
+      showIndicators={false} 
+      stopOnHover={false} 
+      infiniteLoop={true} 
+      className="bg-primary relative p-12"
+      renderArrowPrev={(onClickHandler, hasPrev, label) => (
+          <CustomPrevArrow onClick={onClickHandler} hasPrev={hasPrev} />
+        )}
+        renderArrowNext={(onClickHandler, hasNext, label) => (
+          <CustomNextArrow onClick={onClickHandler} hasNext={hasNext} />  
+        )}
+      >
       <div className="container mx-auto h-auto">
         <p className="text-white text-2xl opacity-90">&quot;Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit tempore vel dolorum itaque sed esse aperiam repudiandae ullam quibusdam, autem dicta aliquam totam in inventore numquam pariatur saepe nemo quam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde id repudiandae error quis, ipsa omnis nam reprehenderit temporibus quas, laborum odit nisi, odio debitis impedit! Repellat vel iusto nobis in. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores aperiam assumenda nobis corrupti, consequatur soluta corporis, doloribus voluptas a consequuntur aliquid explicabo nisi saepe delectus rem laboriosam accusantium, dolorum quas.&quot;</p>
         <div className="my-14">
