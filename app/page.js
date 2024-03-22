@@ -7,9 +7,15 @@ import Lenis from '@studio-freight/lenis'
 import { useEffect } from "react"
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel"
+import { motion, useAnimation } from "framer-motion";
+import StaggeredText from "./components/StaggeredText"
+
+
+
 export default function Page(){
 
-
+  console.log("test");
+  
   const CustomPrevArrow = ({ onClick, hasPrev }) => (
     <div className="absolute left-4 z-10 cursor-pointer   top-1/4" onClick={onClick} disabled={!hasPrev}>
       <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="white"><path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path></svg>
@@ -19,7 +25,7 @@ export default function Page(){
   
   // Custom arrow component for the next arrow
   const CustomNextArrow = ({ onClick, hasNext }) => (
-    <div className="absolute right-4 z-10 cursor-pointer top-1/4 " onClick={onClick} disabled={!hasNext}>
+    <div className="absolute right-4 z-10 cursor-pointer top-1/4" onClick={onClick} disabled={!hasNext}>
      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="white"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
     
     </div>
@@ -50,15 +56,16 @@ export default function Page(){
     <>
       <Menu/>
       <main className="container mx-auto mb-32 mt-5">
-        <div className="grid grid-cols-12  p-10 md:gap-5 md:gap-y-5 ">
+        <motion.div initial={{opacity:0,scale:0.9}} transition={{duration:0.70}} whileInView={{opacity:1,scale:1}} className="grid grid-cols-12  p-10 md:gap-5 md:gap-y-5 ">
 
           
-        <div className="col-span-12 h-48 block sm:hidden -z-20 ">
+        <div initial={{opacity:0,scale:0.5}} transition={{duration:0.40}} whileInView={{opacity:1,scale:1}}  whileHover={{scale:1.2}} className="col-span-12 h-48 block sm:hidden -z-20 ">
           <img className="w-full" src="/image 6.png" alt="" />
           </div>
 
           <div className="bg-white rounded  col-span-8 md:col-span-4 flex justify-end p-1 pr-5 md:items-end ">
-          <h2 className="text-neutral-500  md:text-sm lg:text-2xl md:pr-5">Décorateur d&#39;intérieur</h2>
+         
+          {/*<h2 className="text-neutral-500  md:text-sm lg:text-2xl md:pr-5">Décorateur d&#39;intérieur</h2>*/}
           </div>
 
           <div className="col-span-8  hidden md:block ">
@@ -80,7 +87,7 @@ export default function Page(){
           <div className="col-span-12 md:col-span-7 bg-white rounded  flex justify-end ">
             <h1 className="text-primary uppercase pb-20 sm:pb-0 text-5xl md:text-6xl lg:text-8xl xl:text-9xl" >Delmaire</h1> 
             </div>
-        </div>
+        </motion.div>
       </main>
 
       <section className="container mx-auto flex justify-between items-center h-screen">

@@ -1,12 +1,17 @@
+import { motion } from "framer-motion";
+import StaggeredText from "./StaggeredText";
+
 export default function Intro(){
     return(
         <>
-        <div className="w-1/2 flex">
+        <motion.div initial={{opacity:0,scale:0.9}} transition={{duration:0.70}} whileInView={{opacity:1,scale:1}} className="w-1/2 flex">
             <img className="w-2/3 mx-auto" src="/fdelmaire.svg" alt="" />
-        </div>
+        </motion.div>
 
-        <div className="w-1/2  h-1/2">
-            <h2 className="uppercase text-primary text-right mb-10 text-4xl md:text-5xl lg:text-6xl xl:text-7xl">Présentation</h2>
+        <motion.div initial={{opacity:0,scale:0.9}} transition={{duration:0.70}} whileInView={{opacity:1,scale:1}}  className="w-1/2  h-1/2">
+            
+            
+            <StaggeredText className="text-primary text-left text-7xl uppercase mb-5 font-display-italic" text="Présentation"/>
 
             <p className="opacity-70 mb-5">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime aut laudantium minus ratione eligendi, similique accusamus consequuntur qui architecto quidem quia ullam aliquam maiores harum iusto eveniet, ipsa dolore labore.
@@ -16,7 +21,7 @@ export default function Intro(){
             <p className="opacity-70">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime aut laudantium minus ratione eligendi, similique accusamus consequuntur qui architecto quidem quia ullam aliquam maiores harum iusto eveniet, ipsa dolore labore.
             </p>
-        </div>
+        </motion.div>
         </>
     )
 }
