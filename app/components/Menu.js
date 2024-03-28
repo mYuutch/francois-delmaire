@@ -132,7 +132,7 @@ export default function Menu() {
     <>
     <header className="flex w-full  justify-between mx-auto items-center z-50 text-neutral-700  p-5 md:px-40 overflow-hidden">
       <h1>François Delmaire</h1>
-      <div className="flex flex-col gap-1 z-10"
+      <div className="flex flex-col gap-1 z-50"
       onClick={toggleMenu}>
           <motion.div className="bar1 bg-slate-800 w-7 h-1 rounded" 
           animate={controls}
@@ -151,16 +151,16 @@ export default function Menu() {
       animate={controls}
       variants={navContainer}>
 
-        <motion.div variants={circle} className="w-10 h-10 rounded-full bg-slate-600 absolute -top-40"></motion.div>
+        <motion.div variants={circle} className="w-10 h-10 z-40 rounded-full bg-slate-600 absolute -top-40"></motion.div>
 
-        <motion.nav className="my-auto items-center flex flex-col text-4xl gap-16 uppercase list-none z-10 md:text-7xl md:gap-32"
+        <motion.nav className="my-auto items-center flex flex-col text-4xl z-50 gap-16 uppercase list-none z-10 md:text-7xl md:gap-32"
         variants={list}>
           <motion.li variants={item} href=""> Projets</motion.li>
           <motion.li variants={item} href=""> Prestations</motion.li>
           <motion.li variants={item} href=""> Contact</motion.li>
         </motion.nav>
 
-        <div className="absolute bottom-0 flex justify-between w-full">
+        <div className="absolute bottom-0 z-50 flex justify-between w-full">
           <h1> addressemail@gmail.com</h1>
           <h1> 06 21 48 58 72</h1>
         </div>

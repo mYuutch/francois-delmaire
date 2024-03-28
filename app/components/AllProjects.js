@@ -13,30 +13,25 @@ const graphQLClient = new GraphQLClient(endpoint, {
 });
 
 const query = gql`
-  {
-    projets {
-      edges {
-        node {
-          informations {
-            description
-            location
-            size
-            title
-            after {
-              node {
-                mediaItemUrl
-              }
-            }
-            before {
-              node {
-                mediaItemUrl
-              }
-            }
+{
+  projets {
+    edges {
+      node {
+        informations {
+          description
+          location
+          size
+        }
+        featuredImage {
+          node {
+            mediaItemUrl
           }
         }
+        title
       }
     }
   }
+}
 `;
 /*
 const data = await graphQLClient.request(query);
@@ -61,18 +56,25 @@ export default function AllProjects() {
     }, []);
   
     return (
-        <ul>
-          {projets.map(projet => (
-            <li key={projet.node.informations.title}>
-              <h2>{projet.node.informations.title}</h2>
-              <p>{projet.node.informations.description}</p>
-              <div>
-                <img src={projet.node.informations.after.node.mediaItemUrl} alt="après"></img>
-                <img src={projet.node.informations.before.node.mediaItemUrl} alt="" />
-              </div>
-            </li>
-          ))}
-        </ul>
 
-    );
-    }
+      <main class="-z-1 mt-24 container mx-auto grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
+
+ {projets.map(projet => (
+            <div className="relative rounded flex flex-col overflow-hidden h-[500px]"  key={projet.node.title}>
+              <h2 className="text-primary text-2xl flex-end mt-auto">{projet.node.title}</h2>
+ 
+              {projet.node.featuredImage ? (
+                <div className="absolute -top-12 left-0 w-full h-full">
+                  <img className="w-full h-full object-cover" src={projet.node.featuredImage.node.mediaItemUrl} alt="après"></img>
+                </div>
+              ) : (
+                <div className="absolute -top-12 left-0 w-full h-full">
+              <img className="w-full h-full object-cover" src="/default_thumb.png" alt="default thumbnail" />
+             </div>
+              )}
+            </div>
+    
+
+    )
+    )
+    } </main> )};

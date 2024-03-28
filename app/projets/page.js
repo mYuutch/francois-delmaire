@@ -1,13 +1,14 @@
 'use client'
 import AllProjects from "../components/AllProjects";
+import Menu from "../components/Menu";
 
 
 export default function Page() {
     
     return (
-      <div>
-        <h1>Projets</h1>
+      <main>
+        <Menu/>
         <AllProjects/>
-      </div>
+      </main>
     );
   }
