@@ -130,7 +130,7 @@ export default function Menu() {
 
   return (
     <>
-    <header className="flex w-full  justify-between mx-auto items-center z-50 text-neutral-700  p-5 md:px-40 overflow-hidden">
+    <header className="flex w-full  justify-between mx-auto items-center z-50 text-neutral-700 py-12  p-5 md:px-40 overflow-hidden">
       <h1>François Delmaire</h1>
       <div className="flex flex-col gap-1 z-50"
       onClick={toggleMenu}>

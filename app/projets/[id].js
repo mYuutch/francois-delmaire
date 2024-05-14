@@ -8,27 +8,35 @@ function ProjectDetails() {
 
   const [project, setProject] = useState(null);
 
+  
 
 const query = gql`
 {
-  projets {
-    edges {
-      node {
-        informations {
-          description
-          location
-          size
+    projet(id: 171, idType: DATABASE_ID) {
+      title
+      featuredImage {
+        node {
+          mediaItemUrl
         }
-        featuredImage {
+      }
+      informations {
+        title
+        size
+        location
+        after {
           node {
             mediaItemUrl
           }
         }
-        title
+        before {
+          node {
+            mediaItemUrl
+          }
+        }
+        description
       }
     }
   }
-}
 `;
 
   useEffect(() => {

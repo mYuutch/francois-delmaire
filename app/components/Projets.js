@@ -2,13 +2,22 @@
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { useEffect } from "react";
+import { useEffect, useState, useLayoutEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Projets(){
 
+    const [isMobile, setIsMobile] = useState(false)
+
     useEffect(() => {
+
+        const setResponsivness = () => {
+           return window.innerWidth < 768 ? setIsMobile(true) : setIsMobile(false)
+        }
+
+        setResponsivness()
+      
 
         let ctx = gsap.context(() => {
 
@@ -51,6 +60,7 @@ export default function Projets(){
 
     return(
         <>
+        
 
         <div className="h-[350vh] overflow-hidden relative">
         <section className="projects-section w-screen h-[350vh] flex  overflow-hidden absolute top-0">
