@@ -3,40 +3,40 @@ import { motion, useAnimation } from "framer-motion";
 export default function Hero(){
 
     return(
-        <main className="container flex flex-col overflow-hidden max-lg:h-lsv max-lg:w-screen h-screen  max-xl:w-screen mx-auto mt-5">
+        <main className="flex  w-screen justify-center  max-md:h-auto h-screen max-lg:items-center lg:mt-16 mb-24 xl:py-[calc(100vh/3)]">
 
-        <img className="-z-10 absolute opacity-5 w-full  h-screen top-0 left-0" src="DSC_0852.jpg" alt="" />
-        <div initial={{opacity:0,scale:0.9}} transition={{duration:0.70}} whileInView={{opacity:1,scale:1}} className="grid grid-cols-12  p-10 md:gap-5 md:gap-y-5 ">
+        {/* <img className="-z-10 absolute opacity-5 w-full  h-screen top-0 left-0" src="DSC_0852.jpg" alt="" /> */}
+        <div className="w-[70%] max-md:w-[90%] relative">
 
-          
-        <div initial={{opacity:0,scale:0.5}} transition={{duration:0.40}} whileInView={{opacity:1,scale:1}}  whileHover={{scale:1.2}} className="col-span-12 h-48 block sm:hidden -z-20 ">
-           <img className="w-full max-md:w-screen " src="/image 6.png" alt="" />
-          </div>
 
-          <div className=" rounded  col-span-8 md:col-span-4 flex justify-end p-1 pr-5 md:items-end ">
-         
-          {/*<h2 className="text-neutral-500  md:text-sm lg:text-2xl md:pr-5">Décorateur d&#39;intérieur</h2>*/}
-          </div>
-
-          <div className="col-span-8 scale-125 py-5  hidden md:block ">
-          <img className="object-cover md:w-[29rem] rounded-xl" src="/DSC_0852.jpg" alt="" />
+          <div className="lg:absolute lg:w-[45%] z-10 max-md:mb-4 rounded-lg overflow-hidden lg:-top-[21vw] left-[20vw]">
+          <img className="" src="/DSC_0852.jpg" alt="" />
           </div>
           
-          <div className=" rounded col-span-10 flex md:col-span-6   justify-end pt-2 ">
-            <h1 className="text-primary uppercase  text-5xl md:text-6xl lg:text-8xl xl:text-9xl" >créateur</h1>
-          </div>  
-        
-          <div className="flex relative items-center justify-center col-span-2 md:col-span-1 -z-10 rounded ">
-              <img className=" w-96" src="/Union.svg" alt="" />
-          </div> 
 
-          <div className="hidden md:block col-span-5 relative -z-10 ">
-         <img className="absolute object-contain -top-5 - md:-top-32 -z-10 rounded-xl" src="/DSC_0843.jpg" alt="" />
-         </div>
 
-          <div className="col-span-12 md:col-span-7  rounded  flex justify-end ">
-            <h1 className="text-primary uppercase pb-20 sm:pb-0 text-5xl md:text-6xl lg:text-8xl xl:text-9xl" >d'intérieur</h1> 
-            </div>
+          {/*Texte + Étoile */}
+
+          <div className="flex w-full max-lg:justify-end lg:justify-base ">
+            <div className="flex flex-col items-end justify-end xl:mt-4">
+              <div className="flex text-right items-center gap-[4vh] max-lg:mt-4">
+                <h1 className="uppercase text-primary max-lg:text-7xl lg:text-[7vw]" >créateur</h1>
+                <div className="flex grow">
+                <img className="xl:w-28 md:w-24" src="/Union.svg" alt="" />
+                </div>
+
+                <div className="overflow-hidden absolute w-[45%] -right-[calc(7vw)] -top-[3.5vw] rounded-lg max-lg:hidden">
+            <img className="rounded-lg  h-full object-cover" src="/DSC_0843.jpg" alt="" />
+          </div>
+               
+            </div >
+              <h1 className="uppercase text-primary text-right max-lg:text-7xl   text-[6vw] xl:-mt-4" >d'intérieur</h1> 
+            </div>  
+          
+
+        </div>
+
+
         </div>
       </main>)
 }

@@ -65,7 +65,7 @@ export default function Page(){
   return(
     <>
       <Menu/>
-      <div className="flex flex-col gap-24">
+      <div className="flex flex-col">
       <Hero/>
       <Intro/>
       <Services/>
