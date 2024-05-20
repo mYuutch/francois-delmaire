@@ -5,6 +5,8 @@ import Services from "./components/Services"
 import Reviews from "./components/Reviews"
 import Projets from "./components/Projets"
 import MobileProjets from "./components/MobileProjets"
+import Footer from "./components/Footer"
+import Contact from "./components/Contact"
 import Lenis from '@studio-freight/lenis'
 import { useEffect, useState } from "react"
 import Hero from "./components/Hero"
@@ -47,9 +49,7 @@ export default function Page(){
 
     const lenis = new Lenis()
 
-    lenis.on('scroll', (e) => {
-      console.log(e)
-    })
+  
     
     function raf(time) {
       lenis.raf(time)
@@ -73,9 +73,9 @@ export default function Page(){
         <MobileProjets/>
       ): (<section className=""><Projets/></section>)}
       <Reviews/>
-      <ContactForm></ContactForm>
+      <Contact/>
+      <Footer/>
       </div>
-
     </>
   )
 } 

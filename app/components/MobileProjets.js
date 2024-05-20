@@ -57,23 +57,23 @@ export default function MobileProjets() {
   
     return (
 
-        <section className="flex flex-col items-center gap-24">
+        <section className="flex flex-col items-center gap-16 mb-24">
 
-        <div className="flex flex-col container p-4">
+        <div className="flex flex-col container p-4 pt-8">
         <p className="opacity-70">Envie de découvrir mes</p>
-        <h1 className="p-0 mx-0 bold uppercase text-primary mb-10 text-4xl md:text-5xl lg:text-6xl xl:text-8xl">Projets ?</h1>
-        <p className="w-[500px] mr-[100px] opacity-70">Découvrez à travers cette collection de projets toute la quintessence de mes compétences. Ces projets ont été réalisés avec passion et entrain, afin de transformer la vie de mes clients.</p>
+        <h1 className="p-0 mx-0 bold uppercase text-primary mb-4 text-4xl md:text-5xl lg:text-6xl xl:text-8xl">Projets ?</h1>
+        <p className="w-full text-sm  opacity-70">Découvrez à travers cette collection de projets toute la quintessence de mes compétences. Ces projets ont été réalisés avec passion et entrain, afin de transformer la vie de mes clients.</p>
         </div>
 
 
-      <div class="-z-1  container mx-auto grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-8">
+      <div class="-z-1  container mx-auto grid grid-cols-2 gap-4 p-4 lg:grid-cols-3 lg:gap-8">
 
 
 
  {
  projets.slice(0,6).map(projet => (
-            <div className="relative rounded flex flex-col overflow-hidden aspect-square"  key={projet.node.title}>
-              <h2 className="text-primary text-2xl flex-end mt-auto">{projet.node.title}</h2>
+            <div className="relative rounded flex flex-col overflow-hidden aspect-square "  key={projet.node.title}>
+              <h2 className="text-primary text-sm flex-end mt-auto">{projet.node.title}</h2>
  
               {projet.node.featuredImage ? (
                 <div className="absolute -top-12 left-0 w-full h-full">

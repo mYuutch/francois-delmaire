@@ -44,6 +44,9 @@ module.exports = {
       15: '15',
       16: '16',
     },
+    fontFamily: {
+      'sackers' : ['Sackers']
+    },
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),

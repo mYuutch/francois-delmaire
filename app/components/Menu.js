@@ -2,6 +2,7 @@
 
 import { motion, useAnimation } from "framer-motion";
 import { useState } from "react";
+import { GoNorthStar } from "react-icons/go";
 
 export default function Menu() {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -130,8 +131,9 @@ export default function Menu() {
 
   return (
     <>
-    <header className="flex w-full  justify-between mx-auto items-center z-50 text-neutral-700 py-12  p-5 md:px-40 overflow-hidden">
-      <h1>François Delmaire</h1>
+    <header className="flex w-full  justify-between mx-auto items-center z-50 text-neutral-700 py-12 md:px-40 overflow-hidden">
+      <div></div>
+      <h1 className="font-sackers text-5xl flex justify-between">François <GoNorthStar className="opacity-50 w-4 ml-2"/>  Delmaire</h1>
       <div className="flex flex-col gap-1 z-50"
       onClick={toggleMenu}>
           <motion.div className="bar1 bg-slate-800 w-7 h-1 rounded" 

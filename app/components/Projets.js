@@ -3,23 +3,66 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect, useState, useLayoutEffect } from "react";
+import { gql, GraphQLClient } from "graphql-request"
 
 gsap.registerPlugin(ScrollTrigger);
 
+const endpoint = 'https://francoisdelmaire.com/graphql';
+
+const graphQLClient = new GraphQLClient(endpoint, {
+    method: 'GET', // Since GET method is used by default, you can omit this part if you want
+     jsonSerializer: {                      
+       parse: JSON.parse,
+       stringify: JSON.stringify,
+     },
+   });
+   
+   const query = gql`
+   {
+     projets {
+       edges {
+         node {
+           informations {
+             description
+             location
+             size
+           }
+           featuredImage {
+             node {
+               mediaItemUrl
+             }
+           }
+           title
+         }
+       }
+     }
+   }
+   `;
+
+
+
 export default function Projets(){
 
-    const [isMobile, setIsMobile] = useState(false)
+
+
+    const [projets, setProjets] = useState([]);
 
     useEffect(() => {
 
-        const setResponsivness = () => {
-           return window.innerWidth < 768 ? setIsMobile(true) : setIsMobile(false)
-        }
-
-        setResponsivness()
-      
 
         let ctx = gsap.context(() => {
+
+            const fetchData = async () => {
+                try {
+                  const data = await graphQLClient.request(query);
+                  setProjets(data.projets.edges);
+                  console.log(projets)
+                } catch (error) {
+                  console.error('Error fetching data:', error);
+                }
+              };
+          
+              fetchData();
 
             let pinProjectsSection = gsap.to('.projects-container', {color: '', ease: 'none', duration: 0.25})
         
@@ -72,9 +115,30 @@ export default function Projets(){
                             <h1 className="p-0 mx-0 bold uppercase text-primary mb-10 text-4xl md:text-5xl lg:text-6xl xl:text-8xl">Projets ?</h1>
                             <p className="w-[500px] mr-[100px] opacity-70">Découvrez à travers cette collection de projets toute la quintessence de mes compétences. Ces projets ont été réalisés avec passion et entrain, afin de transformer la vie de mes clients. =)</p>
                         </div>
+                        {
+ projets.slice(0,4).map((projet, index) => (
+    <div
+    className="overflow-hidden h-[400px] w-[300px] absolute mx-10"
+    style={{
+      left: `${20 + index * 12}%`,
+      top: `${20 + (index % 2 === 0 ? 25 : -15)}%`, 
+    }}
+    key={projet.node.title}
+  >
+    {projet.node.featuredImage ? (
+      <img className="w-full h-full object-cover" src={projet.node.featuredImage.node.mediaItemUrl} alt="après" />
+    ) : (
+      <img className="w-full h-full object-cover" src="/default_thumb.png" alt="default thumbnail" />
+    )}
+  </div>
+    )
+    )
+    }
 
-                        <div className="overflow-hidden h-[400px] w-[300px] absolute left-[20%] top-[25%] mx-10">
-                            <img  className="absolute h-full scale-150 w-auto" src="./image 6.png" alt="" />
+    {/*
+
+<div className="overflow-hidden h-[400px] w-[300px] absolute left-[20%] top-[25%] mx-10">
+                            <img  className="absolute h-full scale-150 w-auto"  alt="" />
                         </div>
 
 
@@ -91,6 +155,10 @@ export default function Projets(){
                         <div className="overflow-hidden h-[400px] w-[300px] absolute left-[56%] top-[-15%]  mx-10">
                             <img  className="absolute h-full scale-150 w-auto" src="./image 5.png" alt="" />
                         </div>
+
+*/
+    }
+                        
 
                         <button className="absolute left-[75%] top-1/3 bg-primary text-white px-10 py-5 rounded">
                             Voir plus

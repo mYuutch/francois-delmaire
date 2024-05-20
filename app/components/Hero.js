@@ -1,42 +1,51 @@
-import { motion, useAnimation } from "framer-motion";
+import { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { GoNorthStar } from "react-icons/go";
 
-export default function Hero(){
+export default function Hero() {
+  useEffect(() => {
+    const moveDivs = (e) => {
+      const { clientX, clientY } = e;
+      const moveX = (clientX / window.innerWidth - 0.5) * 10; // Adjust the value to control the movement intensity
+      const moveY = (clientY / window.innerHeight - 0.5) * 10; // Adjust the value to control the movement intensity
 
-    return(
-        <main className="flex  w-screen justify-center  max-md:h-auto h-screen max-lg:items-center lg:mt-16 mb-24 xl:py-[calc(100vh/3)]">
+      gsap.to('.image1', { x: moveX, y: moveY, duration: 0.5, ease: 'power3.out' });
+      gsap.to('.image2', { x: -moveX, y: -moveY, duration: 0.5, ease: 'power3.out' });
+    };
 
-        {/* <img className="-z-10 absolute opacity-5 w-full  h-screen top-0 left-0" src="DSC_0852.jpg" alt="" /> */}
-        <div className="w-[70%] max-md:w-[90%] relative">
+    window.addEventListener('mousemove', moveDivs);
 
+    return () => {
+      window.removeEventListener('mousemove', moveDivs);
+    };
+  }, []);
 
-          <div className="lg:absolute lg:w-[45%] z-10 max-md:mb-4 rounded-lg overflow-hidden lg:-top-[21vw] left-[20vw]">
-          <img className="" src="/DSC_0852.jpg" alt="" />
-          </div>
-          
+  return (
+    <main className="flex max-sm:mb-24 w-screen justify-center max-md:h-auto h-screen items-center lg:mt-16 xl:py-[calc(100vh/3)]">
+      <div className="w-[70%] max-md:w-[90%] relative">
+        <div className="lg:absolute lg:w-[45%] z-10 max-md:mb-4 rounded-lg overflow-hidden lg:-top-[20vw] left-[20vw] image1">
+          <img src="/DSC_0852.jpg" alt="" />
+        </div>
 
-
-          {/*Texte + Étoile */}
-
-          <div className="flex w-full max-lg:justify-end lg:justify-base ">
-            <div className="flex flex-col items-end justify-end xl:mt-4">
-              <div className="flex text-right items-center gap-[4vh] max-lg:mt-4">
-                <h1 className="uppercase text-primary max-lg:text-7xl lg:text-[7vw]" >créateur</h1>
-                <div className="flex grow">
-                <img className="xl:w-28 md:w-24" src="/Union.svg" alt="" />
-                </div>
-
-                <div className="overflow-hidden absolute w-[45%] -right-[calc(7vw)] -top-[3.5vw] rounded-lg max-lg:hidden">
-            <img className="rounded-lg  h-full object-cover" src="/DSC_0843.jpg" alt="" />
-          </div>
+        {/* Texte + Étoile */}
+        <div className="flex w-[90%] flex-wrap max-lg:justify-end lg:justify-base">
+          <div className="flex flex-col items-end justify-end text-right xl:mt-4">
+            <div className="flex text-right items-center justify-center gap-[4vh] max-lg:mt-4 max-md:mb-2">
+              <h1 className="uppercase text-primary max-md:text-5xl max-lg:text-7xl lg:text-[7vw]">créateur</h1>
+               <div className=''>
+              
+               <GoNorthStar className='max-xl:text-6xl xl:text-8xl opacity-30'/>
+               </div>
                
-            </div >
-              <h1 className="uppercase text-primary text-right max-lg:text-7xl   text-[6vw] xl:-mt-4" >d'intérieur</h1> 
-            </div>  
-          
-
+             
+            </div>
+            <div className="overflow-hidden absolute w-[45%] -right-[6vw] -top-[3.5vw] rounded-lg max-lg:hidden image2">
+              <img className="rounded-lg h-full object-cover" src="/DSC_0843.jpg" alt="" />
+            </div>
+          </div>
+          <h1 className="uppercase text-primary text-right max-md:text-5xl max-lg:text-7xl text-[6vw] lg:ml-24 xl:-mt-4">d'intérieur</h1>
         </div>
-
-
-        </div>
-      </main>)
+      </div>
+    </main>
+  );
 }

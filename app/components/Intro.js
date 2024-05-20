@@ -4,12 +4,12 @@ import StaggeredText from "./StaggeredText";
 export default function Intro(){
     return(
         <>
-         <section className="container flex max-md:flex-col mx-auto justify-between overflow-hidden gap-12 items-center max-md:h-auto h-screen">
-        <div initial={{opacity:0,scale:0.9}} transition={{duration:0.70}} whileInView={{opacity:1,scale:1}} className=" max-md:w-full w-1/2 flex">
+         <section className="container flex max-lg:flex-col mx-auto justify-between overflow-hidden gap-12 items-center max-xl:h-auto pb-48">
+        <div initial={{opacity:0,scale:0.9}} transition={{duration:0.70}} whileInView={{opacity:1,scale:1}} className=" max-lg:w-full w-1/2 flex">
             <img className="w-2/3 mx-auto" src="/fdelmaire.svg" alt="" />
         </div>
 
-        <div initial={{opacity:0,scale:0.9}} transition={{duration:0.70}} whileInView={{opacity:1,scale:1}}  className="max-md:w-full max-md:p-4 w-1/2  h-1/2">
+        <div initial={{opacity:0,scale:0.9}} transition={{duration:0.70}} whileInView={{opacity:1,scale:1}}  className="max-lg:w-full max-sm:p-4 max-lg:p-8 w-1/2  h-1/2">
             
             
 
