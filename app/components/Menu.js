@@ -3,7 +3,7 @@
 import { motion, useAnimation } from "framer-motion";
 import { useState } from "react";
 import { GoNorthStar } from "react-icons/go";
-
+import Link from "next/link";
 export default function Menu() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const controls = useAnimation();
@@ -131,7 +131,7 @@ export default function Menu() {
 
   return (
     <>
-    <header className="flex w-full  justify-between mx-auto items-center z-50 text-neutral-700 py-12 md:px-40 overflow-hidden">
+    <header className="flex w-full  justify-between mx-auto items-center z-50 text-neutral-700 py-12 md:px-40 overflow-hidden max-md:p-4 max-md:pt-8">
       <div></div>
       <h1 className="font-sackers text-5xl flex justify-between">François <GoNorthStar className="opacity-50 w-4 ml-2"/>  Delmaire</h1>
       <div className="flex flex-col gap-1 z-50"
@@ -157,15 +157,10 @@ export default function Menu() {
 
         <motion.nav className="my-auto items-center flex flex-col text-4xl z-50 gap-16 uppercase list-none z-10 md:text-7xl md:gap-32"
         variants={list}>
-          <motion.li variants={item} href=""> Projets</motion.li>
-          <motion.li variants={item} href=""> Prestations</motion.li>
-          <motion.li variants={item} href=""> Contact</motion.li>
+          <Link onClick={toggleMenu} href={'/projets'}><motion.li variants={item} > Projets</motion.li></Link>
+          <Link onClick={toggleMenu} href={'/#prestations'}><motion.li variants={item} > Prestations</motion.li></Link>
+          <Link onClick={toggleMenu} href={'/#contact'}><motion.li variants={item} > Contact</motion.li></Link>
         </motion.nav>
-
-        <div className="absolute bottom-0 z-50 flex justify-between w-full">
-          <h1> addressemail@gmail.com</h1>
-          <h1> 06 21 48 58 72</h1>
-        </div>
       </motion.div>
 
       

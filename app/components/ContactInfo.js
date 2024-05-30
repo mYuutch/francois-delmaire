@@ -5,7 +5,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 const ContactInfo = () => {
   return (
-    <div className="w-1/2 max-lg:w-full max-lg:text-lg max-lg:mb-24 text-xl flex flex-col gap-8 uppercase opacity-70">
+    <div id='contact' className="w-1/2 max-lg:w-full max-lg:text-lg max-lg:mb-24 text-xl flex flex-col gap-8 uppercase opacity-70">
       <p className="flex items-center gap-2"> <BsFillTelephoneFill/> 06 22 36 44 03</p>
       <p className="flex items-center gap-2"> <IoMdMail/> francois.delmaire@createur-dinterieur.com</p>
       <p className="flex items-center gap-2"><IoIosPin/> 87 rue Charles de Gaulle, 78350 les LOGES-EN-JOSAS</p>

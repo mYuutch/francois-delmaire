@@ -4,7 +4,7 @@ import { IoIosPin } from "react-icons/io";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { GoNorthStar } from "react-icons/go";
-
+import Link from "next/link";
 const Footer = () => {
   return (
     <footer className="footer bg-primary flex  justify-between pt-24 pb-32">
@@ -19,14 +19,14 @@ const Footer = () => {
             <div className="flex flex-col w-1/2 text-xl max-sm:items-center max-sm:mb-8">
                 <p className="text-2xl mb-8 ml-[33%] max-sm:ml-0 ">Liens</p>
                 <ul className="flex flex-col justify-center ml-[33%] max-sm:items-center max-sm:ml-0  gap-4 opacity-80 text-lg">
-                    <li><a href="">Projets</a></li>
-                    <li><a href="">Prestations</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><Link href={'/projets'}>Projets</Link></li>
+                    <li><Link href={'/#prestations'}>Prestations</Link></li>
+                    <li><Link href={'/#contact'}>Contact</Link></li>
                 </ul>
             </div>
 
             <div className="flex flex-col w-1/2 text-lg max-sm:items-center">
-                <p className="text-2xl mb-8 ml-[33% max-sm:ml-0]">Contact</p>
+                <p className="text-2xl mb-8 ml-[33%] max-sm:ml-0">Contact</p>
                 <ul className="flex flex-col gap-4 justify-center opacity-80 ml-[33%] max-sm:ml-0 max-sm:items-center">        
                     <li><a href="mailto:francois.delmaire@createur-dinterieur.com"> Mail</a></li> 
                     <li><a href="https://www.linkedin.com/in/fran%C3%A7ois-delmaire-617235157/">Linkedin</a></li>

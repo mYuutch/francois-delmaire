@@ -61,7 +61,7 @@
     };
 
     return (
-      <section className='mb-24 max-lg:w-full w-1/2'>
+      <section id='contact' className='mb-24 max-lg:w-full w-1/2'>
         <form onSubmit={handleSubmit} className="max-w-2xl max-lg:w-full max-lg:max-w-none mx-auto p-4 bg-white grid grid-cols-2 gap-x-12 gap-y-12 ">
         <div className="mb-4 text-primary h-16 max-lg:col-span-2">
           <label htmlFor="nomPrenom" className="block uppercase">Nom - Prénom</label>

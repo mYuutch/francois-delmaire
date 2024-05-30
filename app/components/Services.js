@@ -1,6 +1,6 @@
 export default function Services(){
     return(
-        <section className=" max-lg:h-auto h-screen bg-slate-50  flex flex-col gap-24 justify-center py-16">
+        <section id="prestations" className=" max-lg:h-auto h-screen bg-slate-50  flex flex-col gap-24 justify-center py-16">
             <div className="container mx-auto flex flex-col  gap-12">
 
             <div className="max-md:p-8">

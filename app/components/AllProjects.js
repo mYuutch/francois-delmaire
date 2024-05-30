@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { gql, GraphQLClient } from "graphql-request"
 const endpoint = 'https://francoisdelmaire.com/graphql';
+import Link from "next/link";
 
 const graphQLClient = new GraphQLClient(endpoint, {
  method: 'GET', // Since GET method is used by default, you can omit this part if you want
@@ -17,6 +18,7 @@ const query = gql`
   projets {
     edges {
       node {
+        databaseId
         informations {
           description
           location
@@ -60,6 +62,7 @@ export default function AllProjects() {
       <main class="-z-1 mt-24 container mx-auto grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
 
  {projets.map(projet => (
+          <Link href={`/projets/${projet.node.databaseId}`} key={projet.node.databaseId}>
             <div className="relative rounded flex flex-col overflow-hidden h-[500px]"  key={projet.node.title}>
               <h2 className="text-primary text-2xl flex-end mt-auto">{projet.node.title}</h2>
  
@@ -73,6 +76,7 @@ export default function AllProjects() {
              </div>
               )}
             </div>
+            </Link>
     
 
     )
